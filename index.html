@@ -203,20 +203,6 @@ function showpage(pg) {
 
     </style>
     <script>
-      function getIOSVersion() {
-                const userAgent = window.navigator.userAgent;
-                const match = userAgent.match(/(iPad|iPhone|iPod)\s+OS\s+(\d+_+\d+)/);
-
-                if (match) {
-                    const version = match[2].replace(/_/g, '.');
-                    return version;
-                }
-
-                // Return null if the user agent doesn't match the pattern for iOS
-                return null;
-         
-      }
-      
       
         function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -234,8 +220,7 @@ function showpage(pg) {
           fetch('https://ipapi.co/json/')
   .then(d => d.json())
   .then(d => document.querySelector('#ip').innerHTML = '[#] Client IP: '+d.ip);
-          await sleep(2000);
-          alert('also i have ur iOS version: ' + getIOSVersion())
+          
           
         }
       
